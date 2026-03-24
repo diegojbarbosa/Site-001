@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { Cloud, Monitor, Database } from 'lucide-react';
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,28 +21,6 @@ const About = () => {
 
     return () => observer.disconnect();
   }, []);
-
-  const cards = [
-    {
-      icon: Cloud,
-      title: 'Cloud',
-      description: 'AWS, Azure, Oracle Cloud',
-      color: 'from-violet to-violet-light',
-    },
-    {
-      icon: Monitor,
-      title: 'Monitoramento',
-      description: 'Kibana, Grafana, Telegraf',
-      color: 'from-azure to-cyan-400',
-    },
-    {
-      icon: Database,
-      title: 'Banco de Dados',
-      description: 'SQL Server, Oracle, PostgreSQL',
-      color: 'from-orange to-orange-light',
-    },
-  ];
-
   return (
     <section
       ref={sectionRef}
@@ -74,30 +51,6 @@ const About = () => {
                 />
               </div>
 
-              {/* Floating Cards */}
-              {cards.map((card, index) => (
-                <div
-                  key={card.title}
-                  className={`absolute glass rounded-xl p-4 flex items-center gap-3 animate-float shadow-lg transition-all duration-500 ${
-                    isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-                  }`}
-                  style={{
-                    transitionDelay: `${600 + index * 150}ms`,
-                    animationDelay: `${index * 0.5}s`,
-                    ...(index === 0 && { top: '-20px', right: '-20px' }),
-                    ...(index === 1 && { bottom: '40px', left: '-30px' }),
-                    ...(index === 2 && { bottom: '-20px', right: '20px' }),
-                  }}
-                >
-                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-r ${card.color} flex items-center justify-center flex-shrink-0`}>
-                    <card.icon className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-white text-sm">{card.title}</div>
-                    <div className="text-xs text-white/60">{card.description}</div>
-                  </div>
-                </div>
-              ))}
 
               {/* Decorative Border */}
               <div className="absolute -inset-4 border-2 border-dashed border-white/10 rounded-3xl -z-10" />
