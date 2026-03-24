@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, MessageCircle, ChevronDown, Cloud, Database, Server } from 'lucide-react';
+import { ArrowRight, MessageCircle, ChevronDown, Cloud, Database } from 'lucide-react';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
